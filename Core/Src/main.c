@@ -23,7 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
-#include <stdlib.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,7 +101,7 @@ int main(void)
   while (1)
   {
 	sprintf(buffer,msg,i++);
-	HAL_UART_Transmit(&huart2, buffer, strlen(msg), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(msg), HAL_MAX_DELAY);
 	HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 	HAL_Delay(1000);
     /* USER CODE END WHILE */
